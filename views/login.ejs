@@ -1,0 +1,186 @@
+<style>
+
+  *{
+	padding: 0;
+	margin: 0;
+}
+
+.container{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(https://i.pinimg.com/originals/e5/9c/82/e59c829455bd9cdc12930cb72c7253f3.png);
+	background-size: cover;
+
+}
+
+.login_box{
+	background-color:transparent;
+    padding:50px 20px;
+	width: 400px;
+	border-radius: 20px;
+	border: 1px solid #fff;
+	/* filter: blur(8px); */
+	backdrop-filter: blur(4px);
+}
+
+
+h1{
+	text-align:center;
+	margin-bottom: 20px;
+	font-size:40px;
+	color:#FFF;
+}
+
+.input_box{
+	width: 90%;
+	margin: auto;
+	height: 40px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.input_box input{
+	width: 100%;
+    height:40px;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+    padding: 0px 20px;
+	background-color:transparent;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	font-size: 18px;
+}
+
+.input_box label{
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform:translateY(-50%);
+	font-size:18px;
+	font-weight:500;
+	color: #FFF;
+	transition: .3s;
+}
+
+.icon{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	color: #fff;
+}
+
+.rem{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:#fff;
+	font-size: 14px;
+}
+
+.rem input{
+	margin-right: 5px;
+}
+
+.rem a{
+	text-decoration: none;
+	margin-left:5px;
+	color:#fff;
+	font-weight: bold;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+}
+
+.login button{
+	width: 200px;
+	height:40px;
+	margin-top:20px;
+	border-radius: 20px;
+	font-size:18px;
+	font-weight:bold;
+	background-color: #fff;
+	border: none;
+	outline:none;
+	transition: ..3s;
+}
+
+.reg{
+	display: flex;
+	justify-content: center;
+	margin-top:20px;
+	font-size: 14px;
+	color: #ffff;
+}
+
+.reg a{
+	text-decoration: none;
+	margin-left: 5px;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+.input_box input:focus ~ label,
+.input_box input:valid ~ label{
+	top: 0;
+ }
+
+
+ .login button:hover{
+	cursor: pointer;
+	background-color:transparent;
+	color:#fff;
+	border: 1px solid #fff;
+ }
+ </style>
+
+ <div class="container">
+	<div class="login_box">
+		<h1>Login</h1>
+    <form action="loginUser" method="POST">
+		<div class="input_box">
+			<input type="text" name="email" required="">
+			<label for="">Email</label>
+			<ion-icon class="icon " name="mail-outline"></ion-icon>
+		</div>
+		<div class="input_box">
+			<input type="password" name="pass" required="">
+			<label for="">password</label>
+			<ion-icon class="icon" name="lock-closed-outline"></ion-icon>
+		</div>
+		<div class="rem">
+			<!-- <input id="chack" type="checkbox"> -->
+      <% if(typeof error != 'undefined') { %>
+          <label for="chack" style="color: red;"><b><%= error %></b></label>
+      <% } %>
+			<!-- <a href="#">forget password</a> -->
+		</div>
+		<div class="login">
+			<button>Log in </button>
+		</div>
+    </form>
+		<div>
+			<div class="reg">
+				<a href="/">request private beta</a>
+			</div>
+		</div>
+	</div>
+ </div>
+
+
+
+
+
+
+
+
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

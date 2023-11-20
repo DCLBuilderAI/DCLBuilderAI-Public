@@ -1,0 +1,37 @@
+{
+  "name": "product-editor",
+  "version": "1.0.0",
+  "description": "A no-code tool for creating custom gaming scripts",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lecraptenr-team/product-editor.git"
+  },
+  "author": "Aditya Saxena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lecraptenr-team/product-editor/issues"
+  },
+  "homepage": "https://github.com/lecraptenr-team/product-editor#readme",
+  "dependencies": {
+    "async": "^3.2.4",
+    "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "openai": "^3.2.1",
+    "replicate": "^0.18.1",
+    "request": "^2.88.2",
+    "stripe": "^11.3.0"
+  }
+}

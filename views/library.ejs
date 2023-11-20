@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="4000">
+  <title>DCLBuilderAI</title>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+  <!-- bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- codemirror -->
+  <script src="codemirror/lib/codemirror.js"></script>
+  <link href="codemirror/lib/codemirror.css" rel="stylesheet" />
+  <script src="codemirror/mode/javascript/javascript.js"></script>
+
+  <script src="codemirror/addon/edit/closetag.js"></script>
+  <script src="codemirror/addon/display/autorefresh.js"></script>
+
+  <!-- themes files -->
+  <!-- <link href="codemirror/theme/dracula.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="codemirror/theme/3024-day.css" />
+
+  <link rel="stylesheet" href="codemirror/theme/3024-day.css" />
+  <link rel="stylesheet" href="codemirror/theme/3024-night.css" />
+  <link rel="stylesheet" href="codemirror/theme/abbott.css" />
+  <link rel="stylesheet" href="codemirror/theme/abcdef.css" />
+  <link rel="stylesheet" href="codemirror/theme/ambiance.css" />
+  <link rel="stylesheet" href="codemirror/theme/ayu-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/ayu-mirage.css" />
+  <link rel="stylesheet" href="codemirror/theme/base16-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/bespin.css" />
+  <link rel="stylesheet" href="codemirror/theme/base16-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/blackboard.css" />
+  <link rel="stylesheet" href="codemirror/theme/cobalt.css" />
+  <link rel="stylesheet" href="codemirror/theme/colorforth.css" />
+  <link rel="stylesheet" href="codemirror/theme/dracula.css" />
+  <link rel="stylesheet" href="codemirror/theme/duotone-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/duotone-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/eclipse.css" />
+  <link rel="stylesheet" href="codemirror/theme/elegant.css" />
+  <link rel="stylesheet" href="codemirror/theme/erlang-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/gruvbox-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/hopscotch.css" />
+  <link rel="stylesheet" href="codemirror/theme/icecoder.css" />
+  <link rel="stylesheet" href="codemirror/theme/isotope.css" />
+  <link rel="stylesheet" href="codemirror/theme/juejin.css" />
+  <link rel="stylesheet" href="codemirror/theme/lesser-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/liquibyte.css" />
+  <link rel="stylesheet" href="codemirror/theme/lucario.css" />
+  <link rel="stylesheet" href="codemirror/theme/material.css" />
+  <link rel="stylesheet" href="codemirror/theme/material-darker.css" />
+  <link rel="stylesheet" href="codemirror/theme/material-palenight.css" />
+  <link rel="stylesheet" href="codemirror/theme/material-ocean.css" />
+  <link rel="stylesheet" href="codemirror/theme/mbo.css" />
+  <link rel="stylesheet" href="codemirror/theme/mdn-like.css" />
+  <link rel="stylesheet" href="codemirror/theme/midnight.css" />
+  <link rel="stylesheet" href="codemirror/theme/monokai.css" />
+  <link rel="stylesheet" href="codemirror/theme/moxer.css" />
+  <link rel="stylesheet" href="codemirror/theme/neat.css" />
+  <link rel="stylesheet" href="codemirror/theme/neo.css" />
+  <link rel="stylesheet" href="codemirror/theme/night.css" />
+  <link rel="stylesheet" href="codemirror/theme/nord.css" />
+  <link rel="stylesheet" href="codemirror/theme/oceanic-next.css" />
+  <link rel="stylesheet" href="codemirror/theme/panda-syntax.css" />
+  <link rel="stylesheet" href="codemirror/theme/paraiso-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/paraiso-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/pastel-on-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/railscasts.css" />
+  <link rel="stylesheet" href="codemirror/theme/rubyblue.css" />
+  <link rel="stylesheet" href="codemirror/theme/seti.css" />
+  <link rel="stylesheet" href="codemirror/theme/shadowfox.css" />
+  <link rel="stylesheet" href="codemirror/theme/solarized.css" />
+  <link rel="stylesheet" href="codemirror/theme/the-matrix.css" />
+  <link rel="stylesheet" href="codemirror/theme/tomorrow-night-bright.css" />
+  <link rel="stylesheet" href="codemirror/theme/tomorrow-night-eighties.css" />
+  <link rel="stylesheet" href="codemirror/theme/ttcn.css" />
+  <link rel="stylesheet" href="codemirror/theme/twilight.css" />
+  <link rel="stylesheet" href="codemirror/theme/vibrant-ink.css" />
+  <link rel="stylesheet" href="codemirror/theme/xq-dark.css" />
+  <link rel="stylesheet" href="codemirror/theme/xq-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/yeti.css" />
+  <link rel="stylesheet" href="codemirror/theme/idea.css" />
+  <link rel="stylesheet" href="codemirror/theme/darcula.css" />
+  <link rel="stylesheet" href="codemirror/theme/yonce.css" />
+  <link rel="stylesheet" href="codemirror/theme/zenburn.css" />
+
+  <!-- select 2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <link rel="stylesheet" href="css/style1.css" />
+
+<link rel="stylesheet" href="css/search.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css" />
+
+  <!-- sweet alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+<body>
+  <div class="main-20ul" style="margin-left: 5%; margin-right: 5%;">
+    <div class="wrapper">
+      <nav class="navbar container-fluid d-flex justify-content-between align-items-center"
+        style="margin-bottom: 1%;">
+        <h1 class="navheading">DCLBuilderAI Library</h1>
+        <ul class="nie-left side-none2">
+          <li class="list-nav">
+
+          <li class="list-nav"><a class="anker-aa l-n2 fl-te" target="_blank"
+              href="https://github.com/DCLBuilderAI/DCLBuilderAI">Docs <img class="arrow11" src="img/arrow1.svg" alt=""></a></li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav">
+            <form action="toolTest" method="POST">
+              <input type="hidden" name="id" value="<%= user._id %>">
+              <a class="anker-aa l-n2" href="javascript:;" onclick="parentNode.submit();">Tool</a>
+            </form>
+          </li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav"><a class="anker-aa l-n2" target="_blank"
+              href="https://discord.gg/Rcqdzp6dqK">Discord</a></li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav "><a id="connectModalBtn" class="anker-aa l-n1 anker-h ank-fz" href="#">Connect Wallet</a></li>
+          <li class="list-nav "><a id="walletAccountBtn" class="anker-aa l-n1 anker-h ank-fz" href="#" style="display: none;"></a></li>
+
+          <div class="dropdown">
+            <!-- <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reward
+              </a> -->
+            <!-- <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                <a href="#" class="dropdown-item btn">LINK 1</a>
+                <a href="#" class="dropdown-item btn">LINK 2</a>
+                <a href="#" class="dropdown-item btn">LINK 3</a>
+              </div> -->
+          </div>
+          </li>
+          <!-- <li class="list-nav">
+            <div class="dropdown">
+              <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Label 2
+              </a>
+              <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                <a href="#" class="dropdown-item btn">LINK 1</a>
+                <a href="#" class="dropdown-item btn">LINK 2</a>
+                <a href="#" class="dropdown-item btn">LINK 3</a>
+              </div>
+            </div>
+          </li>
+          <li class="list-nav">
+            <a class="anker-aa" href="#Invester">Invester</a>
+          </li> -->
+        </ul>
+
+        <ul class="nie-left side-none1 side-none1-flex">
+
+
+          <li class="list-nav"><a class="anker-aa l-n2 fl-te" target="_blank"
+              href="https://github.com/DCLBuilderAI/DCLBuilderAI">Docs <img class="arrow11" src="img/arrow1.svg" alt=""></a>
+          </li>
+          <li class="list-nav"><a class="anker-aa l-n2" target="_blank" href="https://discord.gg/Rcqdzp6dqK">Library</a></li>
+          <li class="list-nav"><a class="anker-aa l-n2" target="_blank" href="https://discord.gg/Rcqdzp6dqK">Discord</a></li>
+          <li class="list-nav "><a id="connectModalBtn" class="anker-aa l-n1 anker-h ank-fz2" href="#">Connect Wallet</a></li>
+          <li class="list-nav "><a id="walletAccountBtn" class="anker-aa l-n1 anker-h ank-fz" href="#" style="display: none;"></a></li>
+
+          <div class="dropdown">
+            <!-- <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reward
+                      </a> -->
+            <!-- <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                        <a href="#" class="dropdown-item btn">LINK 1</a>
+                        <a href="#" class="dropdown-item btn">LINK 2</a>
+                        <a href="#" class="dropdown-item btn">LINK 3</a>
+                      </div> -->
+          </div>
+
+          <!-- <li class="list-nav">
+                    <div class="dropdown">
+                      <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Label 2
+                      </a>
+                      <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                        <a href="#" class="dropdown-item btn">LINK 1</a>
+                        <a href="#" class="dropdown-item btn">LINK 2</a>
+                        <a href="#" class="dropdown-item btn">LINK 3</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-nav">
+                    <a class="anker-aa" href="#Invester">Invester</a>
+                  </li> -->
+        </ul>
+
+
+
+      </nav>
+    </div>
+  </div>
+
+  <div class="cont-03">
+
+
+    <% for(var i = 0; i < examples.length; i++) { %>
+    <div class="intririor1">
+      <div class="idit-not">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+              <button class="btn btn-check sweetsuccessi<%=i%>" onclick="showSwal('<%=examples[i].id%>');">
+                <span class="mdi mdi-check tick"></span>
+              </button>
+              <button class="btn btn-cross sweetdanger" onclick="showWrong('<%=examples[i].id%>');" >
+                <span class="mdi mdi-close-box chek-not"></span>
+              </button>
+              &nbsp;&nbsp;
+            </div>
+            <div>
+              <button class="int-btn-09 bol-10" style="background-color: #8B0000;font-weight:bold; margin-bottom: 12px; cursor: default;">DCLBuilderAI</button>
+            </div>
+          </div>
+      </div>
+        <div class="glow-card">
+          <p>"<%=examples[i].prompt%>"</p>
+          <div class="mahr-76">
+            <textarea id="editori<%=i%>"><%=examples[i].completion%></textarea>
+          </div>
+        </div>
+      </div>
+      <script>
+        var editorId = "editori" + "<%=i%>";
+        var editorRandom = CodeMirror.fromTextArea(document.getElementById(editorId), {
+          mode: "text/typescript",
+          theme: "idea",
+          lineNumbers: true,
+          autoCloseTags: true,
+          readOnly: true,
+        });
+        editorRandom.setSize("100%", "300");
+        codemirrorEditor.push(editorRandom);
+        function showSwal() {
+          Swal.fire({
+              title: "Success",
+              text: "We have recorded your feedback. Thank you!",
+              icon: "success",
+              button: "OK",
+          });
+        }
+        function showWrong() {
+          Swal.fire({
+              title: "Incorrect Code Generated by DCLBuilderAI",
+              text: "We have recorded your feedback. Thank you!",
+              icon: "warning",
+              button: "OK",
+          });
+        }
+      </script>
+    <% } %>
+
+  </div>
+    <center><a href='#'>Next Page</a></center><br><br>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://startup-tailwind.preview.uideck.com/ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCLBuilderAI - Sign In / Sign Up</title>
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<body class="bg-gray-900 min-h-screen">
+
+  <div class="bg-gray-800 bg-cover flex min-h-screen items-center justify-center" style="background-image: url('https://image.lexica.art/full_jpg/8530b50e-d677-43df-9acb-b149c4e7278f'">
+    <div class="bg-gray-900 shadow-none rounded-2xl border border-gray-700 p-8" style="opacity: 0.9;">
+      <!-- bg-gray-900 rounded-2xl border border-gray-700 p-4 -->
+      <h1 class="text-white text-3xl font-bold text-slate-900 mb-6">DCLBuilderAI Sign In / Sign Up</h1>
+      <form action="loginUser" method="POST">
+        <div class="flex flex-col mb-6">
+          <label for="email" class="text-white text-base font-normal text-slate-900 mb-2">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" class="bg-gray-800 text-white px-3 py-2 rounded-xl border-0 outline-0 ring-1 ring-inset ring-slate-300 focus-visible:outline-2 focus-visible:outline-offset-4 bg-white text-slate-900 placeholder-slate-400 focus-visible:outline-slate-400 focus:ring-slate-300 disabled:opacity-50" required>
+        </div>
+        <div class="flex flex-col mb-6">
+          <label for="password" class="text-white text-base font-normal text-slate-900 mb-2">Password</label>
+          <input type="password" id="pass" name="pass" placeholder="optional" class="bg-gray-800 text-white px-3 py-2 rounded-xl border-0 outline-0 ring-1 ring-inset ring-slate-300 focus-visible:outline-2 focus-visible:outline-offset-4 bg-white text-slate-900 placeholder-slate-400 focus-visible:outline-slate-400 focus:ring-slate-300 disabled:opacity-50">
+        </div>
+        <button class="bg-blue-500 text-white px-3.5 py-2.5 rounded-2xl gap-x-2 font-semibold hover:bg-opacity-80" style="background-color: #1F51FF; padding: 10px; width: 140px;">Enter</button>
+      </form>
+      <p class="text-gray-900 text-base bg-gray-900 font-normal text-slate-500 mt-3">By clicking the 'Join Waitlist' button, you agree to receive
+        updates from DCLBuilderAI
+        <% if(typeof error != 'undefined') { %>
+        <p id="successMessage" class="text-white text-base font-normal text-red-500">
+        <span class="inline-flex items-center">
+          <span class="mr-2 text-xl">
+            <i class="gg-check"></i>
+          </span>
+
+            <%= error %>
+
+        </span>
+      </p>
+        <% } %>
+    </div>
+  </div>
+
+  <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+  <script>
+    document.getElementById("inviteForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const url = document.getElementById("url").value;
+      const successMessage = document.getElementById('successMessage');
+
+      const response = await fetch("/join-waitlist", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, url })
+      });
+
+      if (response.ok) {
+        successMessage.classList.remove('hidden');
+      } else {
+
+      }
+
+    })
+  </script>
+
+
+</body>

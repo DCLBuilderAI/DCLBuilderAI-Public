@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="4000">
+  <title>DCLBuilderAI</title>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+  <!-- bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- codemirror -->
+  <script src="codemirror/lib/codemirror.js"></script>
+  <link href="codemirror/lib/codemirror.css" rel="stylesheet" />
+  <script src="codemirror/mode/javascript/javascript.js"></script>
+
+  <script src="codemirror/addon/edit/closetag.js"></script>
+  <script src="codemirror/addon/display/autorefresh.js"></script>
+
+  <!-- themes files -->
+  <link rel="stylesheet" href="codemirror/theme/idea.css" />
+  <link rel="stylesheet" href="codemirror/theme/paraiso-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/duotone-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/neo.css" />
+  <link rel="stylesheet" href="codemirror/theme/neat.css" />
+  <link rel="stylesheet" href="codemirror/theme/twilight.css" />
+  <link rel="stylesheet" href="codemirror/theme/xq-light.css" />
+  <link rel="stylesheet" href="codemirror/theme/3024-day.css" />
+  <link rel="stylesheet" href="codemirror/theme/dracula.css" />
+
+
+  <!-- select 2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <link rel="stylesheet" href="css/style2.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css" />
+
+  <script>
+    window.history.pushState('tool', 'Tool', '/tool');
+  </script>
+  <!-- sweet alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+<body>
+  <div class="main-20ul" style="margin-left: 5%; margin-right: 5%;">
+    <div class="wrapper">
+      <nav class="navbar container-fluid d-flex justify-content-between align-items-center"
+        style="margin-bottom: 1%;">
+        <h1 class="navheading">DCLBuilderAI</h1>
+        <ul class="nie-left side-none2">
+          <li class="list-nav">
+
+          <li class="list-nav"><a class="anker-aa l-n2 fl-te" target="_blank"
+              href="https://github.com/DCLBuilderAI/DCLBuilderAI">Docs <img class="arrow11" src="img/arrow1.svg" alt=""></a></li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav">
+            <form action="openLibrary" method="POST">
+              <input type="hidden" name="id" value="<%= user._id %>">
+              <a class="anker-aa l-n2" href="javascript:;" onclick="parentNode.submit();">Library</a>
+            </form>
+          </li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav"><a class="anker-aa l-n2" target="_blank"
+              href="https://discord.gg/Rcqdzp6dqK">Discord</a></li>&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <li class="list-nav "><a id="connectModalBtn" class="anker-aa l-n1 anker-h ank-fz" href="#">Connect Wallet</a></li>
+          <li class="list-nav "><a id="walletAccountBtn" class="anker-aa l-n1 anker-h ank-fz" href="#" style="display: none;"></a></li>
+
+          <div class="dropdown">
+            <!-- <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reward
+              </a> -->
+            <!-- <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                <a href="#" class="dropdown-item btn">LINK 1</a>
+                <a href="#" class="dropdown-item btn">LINK 2</a>
+                <a href="#" class="dropdown-item btn">LINK 3</a>
+              </div> -->
+          </div>
+          </li>
+          <!-- <li class="list-nav">
+            <div class="dropdown">
+              <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Label 2
+              </a>
+              <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                <a href="#" class="dropdown-item btn">LINK 1</a>
+                <a href="#" class="dropdown-item btn">LINK 2</a>
+                <a href="#" class="dropdown-item btn">LINK 3</a>
+              </div>
+            </div>
+          </li>
+          <li class="list-nav">
+            <a class="anker-aa" href="#Invester">Invester</a>
+          </li> -->
+        </ul>
+
+        <ul class="nie-left side-none1 side-none1-flex">
+
+
+          <li class="list-nav"><a class="anker-aa l-n2 fl-te" target="_blank"
+              href="https://github.com/DCLBuilderAI/DCLBuilderAI">Docs <img class="arrow11" src="img/arrow1.svg" alt=""></a>
+          </li>
+          <li class="list-nav"><a class="anker-aa l-n2" target="_blank" href="https://discord.gg/Rcqdzp6dqK">Discord</a></li>
+          <li class="list-nav "><a id="connectModalBtn" class="anker-aa l-n1 anker-h ank-fz2" href="#">Connect Wallet</a></li>
+          <li class="list-nav "><a id="walletAccountBtn" class="anker-aa l-n1 anker-h ank-fz" href="#" style="display: none;"></a></li>
+
+          <div class="dropdown">
+            <!-- <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reward
+                      </a> -->
+            <!-- <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                        <a href="#" class="dropdown-item btn">LINK 1</a>
+                        <a href="#" class="dropdown-item btn">LINK 2</a>
+                        <a href="#" class="dropdown-item btn">LINK 3</a>
+                      </div> -->
+          </div>
+
+          <!-- <li class="list-nav">
+                    <div class="dropdown">
+                      <a href="javascript:void(0)" class="anker-aa dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Label 2
+                      </a>
+                      <div class="dropdown-menu dropcustom" aria-labelledby="dropdownMenu2">
+                        <a href="#" class="dropdown-item btn">LINK 1</a>
+                        <a href="#" class="dropdown-item btn">LINK 2</a>
+                        <a href="#" class="dropdown-item btn">LINK 3</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-nav">
+                    <a class="anker-aa" href="#Invester">Invester</a>
+                  </li> -->
+        </ul>
+
+
+
+      </nav>
+    </div>
+  </div>
+  <div class="block-flex">
+  <div class="block1">
+  <div class="wrapper">
+
+    <div class="upper-container">
+      <div class="inner-container">
+        <div class="side-nav">
+          <div class="nav-editor">
+            <div id="main-resize-custom-input" style="position: relative;">
+              <textarea id="elemprompt" class="elemprompt" cols="30" rows="4" placeholder="Generate a Cube"
+                maxlength="200" onkeyup='setElemPrompt(this, "#txtlenght")'></textarea>
+              <p style="margin: 0; position: absolute; margin-top: -30px;margin-right: 20px;"
+                class="text-right side-nav-char"><span id="txtlenght">0</span>/200</p>
+            </div>
+            <div style="display: flex !important; justify-content: center !important;" class=" mt-2 mb-4 d-flex justify-content-between align-items-center">
+              <div class="media-mob">
+                <div class="media media-col">
+                  <button style="margin-right: 15px;" class="btn-02 btn-2" id="generateCodeM">
+                    Generate (A)
+                  </button>
+                  <button class="btn-02 btn-2" id="generateCodeMB">
+                    Generate (B)
+                  </button>
+                </div>
+                <div class="media media-col" style="margin-top: 15px;">
+                  <button style="margin-right: 15px;" class="btn-02 btn-2" id="generateCodeMC">
+                    Generate (C)
+                  </button>
+                  <button class="btn-02 btn-2" id="generateModelM">
+                    Generate Model
+                  </button>
+                </div>
+              </div>
+              <div class="media-mob640">
+                <div class="media media-col">
+                  <button style="margin-bottom: 15px;" class="btn-02 btn-2" id="generateCodeN">
+                    Generate (A)
+                  </button>
+                  <button class="btn-02 btn-2" id="generateCodeNB">
+                    Generate (B)
+                  </button>
+                </div>
+                <div class="media media-col" style="margin-top: 15px;">
+                  <button style="margin-bottom: 15px;" class="btn-02 btn-2" id="generateCodeNC">
+                    Generate (C)
+                  </button>
+                  <button class="btn-02 btn-2" id="generateModelN">
+                    Generate Model
+                  </button>
+                </div>
+              </div>
+              <div class="media-dec">
+                  <button class="btn-02 btn-2" id="generateCode">
+                    Generate Code
+                  </button>
+
+                  <!-- <button class="btn-02 btn-2" id="generateTexture">
+                    Generate (Texture)
+                  </button> -->
+                  <button class="btn-02 btn-2" id="generateModel">
+                    Model Mode
+                  </button>
+
+                  <button class="btn-02 btn-2" id="generateImage">
+                    Image Mode
+                  </button>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- <a class="open-it" style="margin-left: 80%;" id="open" href="/" download>Download File (.glb)</a> -->
+
+    <div class="container-fluid page">
+
+
+
+    </div>
+  </div>
+  <div class="code-mirror">
+
+    <div class="code-area">
+      <div class="mi-inter-cla">
+
+
+
+
+
+        <div class="code-inter-23">
+          <div class="idit-not">
+            <button class="btn btn-check" id="sweetsuccess">
+              <div class="img-pt"><img src="img/pt.svg" alt=""></div>
+            </button>
+            <button class="btn btn-cross" id="sweetdanger">
+              <div class="img-cross"><img src="img/cross.svg" alt=""></div>
+            </button>
+
+          </div>
+          <div class="code-border">
+          <div class="text-eid">
+
+            <div class="xl-9812">
+              <div class="nave-bar flex-column">
+                <div class="flex-inhrit8">
+                  <div class="flex-space">
+                    <div>
+                      <ul class="inhirit-ul">
+
+                        <ul class="nav nav-pills" id="tabappendedi">
+                          <li class="nav-item">
+                            <a class="nav-link openTab active" data-toggle="pill" value="tab001"
+                              href="#tab001">Script&nbsp1</a>
+                          </li>
+                        </ul>
+
+                        <li class="list-nav">
+                          <select class="themeselect" name="" id="changeTheme">
+                            <option value="idea" selected class="idea-padd">Idea</option>
+                            <option value="paraiso-light">Paraiso Light</option>
+                            <option value="duotone-light">Duotone Light</option>
+                            <option value="neo">Neo</option>
+                            <option value="neat">Neat</option>
+                            <option value="twilight">Twilight</option>
+                            <option value="xq-light">Xq Light</option>
+                            <option value="3024-day">3024 Day</option>
+                            <option value="dracula">Dracula</option>
+                          </select>
+                        </li>
+                    </div>
+
+
+                      <div class="side-navbar-09 side-none">
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Save" id="downloadCode" data-toggle="tooltip" data-placement="bottom"
+                            title="Download Script">
+                            <!----<span class="mdi mdi-content-save-move-outline save1"></span>---->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec.svg" alt=""></div>
+
+                          </a>
+                        </li>
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Clear" id="hide" data-toggle="tooltip" data-placement="bottom" title="Clear Script">
+                            <!----<span class="mdi delet-icon mdi-delete delet1"></span>---->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec2.svg" alt=""></div>
+
+                          </a>
+                        </li>
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Clear" id="copytoclip" data-toggle="tooltip" data-placement="bottom"
+                            title="Copy to Clipboard">
+                            <!---<span class="mdi delet-icon mdi-content-copy delet1"></span>--->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec1.svg" alt=""></div>
+
+                          </a>
+                        </li>
+                      </div>
+
+                    <div class="flexy">
+                      <div class="side-navbar-09">
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Save" id="downloadCode" data-toggle="tooltip" data-placement="bottom"
+                            title="Download Script">
+                            <!----<span class="mdi mdi-content-save-move-outline save1"></span>---->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec.svg" alt=""></div>
+
+                          </a>
+                        </li>
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Clear" id="hide" data-toggle="tooltip" data-placement="bottom" title="Clear Script">
+                            <!----<span class="mdi delet-icon mdi-delete delet1"></span>---->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec2.svg" alt=""></div>
+
+                          </a>
+                        </li>
+
+                        <li class="list-nav me-niw-sidebar">
+                          <a class="anker" href="#Clear" id="copytoclip" data-toggle="tooltip" data-placement="bottom"
+                            title="Copy to Clipboard">
+                            <!---<span class="mdi delet-icon mdi-content-copy delet1"></span>--->
+                            <div class="image-vec"><img style="width: 100%;" src="/img/vec1.svg" alt=""></div>
+
+                          </a>
+                        </li>
+                      </div>
+                      <div>
+                        <div class=""></div>
+                        <div class="btn-code flex align-items-center">
+                          <button class="btn-04 btn-4">Preview</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    </div>
+                    <div class="side-none">
+                      <div class=""></div>
+                      <div class="btn-code flex align-items-center">
+                        <button class="btn-04 btn-4" id="previewBTN">Preview</button>
+                      </div>
+                    </div>
+                </div>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="inner-code01 flex-column" style="position: relative;">
+            <div class="eadi-miror">
+              <!-- Tab panes -->
+              <div class="tab-content" id="appendeditor">
+                <div class="tab-pane TabEditor active" id="tab001" value="0">
+                  <textarea id="editor001">/** This is editor 1 **/
+var global_var = 10</textarea>
+                  <input type="hidden" value="0" class="inp">
+                </div>
+              </div>
+
+            </div>
+            <div class="foot-btn d-flex justify-content-between align-items-center">
+              <!-- <div class="but-fix">
+                  <button class="btn-02 btn-2">Shorten</button>
+                  <button class="btn-05 btn-5">Fix</button>
+               </div> -->
+              <div class="span-5000" style="position: absolute;margin-top: -70px;margin-left: 40px;">
+                <p style="margin: 0;" class="text-right"><span id="editorMaxVal">0</span>/5000</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  </div>
+
+  <div class="sec-09-pro">
+
+    <div class="inner-ui-2">
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+      <div id="loadi" style="color: black; margin-top: 0%;font-weight: 500;">
+        <iframe src="http://localhost:64568/" frameborder="0" style="display: none;" id="iframe"></iframe>
+      </div>
+
+        <img id="texture" style="visibility: hidden;" src="https://cdn.stablediffusionapi.com/generations/7cfb1b4b-29d3-4b08-b699-844e444a2c79-0.png">
+
+
+      <model-viewer id="mv-demo" shadow-intensity="1" src="file22.glb" shadow-intensity="1" camera-controls
+        touch-action="pan-y" generate-schema></model-viewer>
+
+      <div id="load"
+        style="color: black; visibility: hidden; margin-top: 0%; display: flex;align-items: center;justify-content: center;">
+        <img src="img/dark-loader.gif">
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div id="connectModal" class="x-modal">
+
+    <!-- Connect Modal content -->
+    <div class="x-modal-content">
+      <span class="x-close">&times;</span>
+      <div class="x-group-buttons">
+        <button type="button" id="metamaskBtn" class="x-connect-btn x-mb-15">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="355" viewBox="0 0 397 355" width="397" aria-hidden="true" focusable="false" style="width: 28px; height: 28px;"><g fill="none" fill-rule="evenodd" transform="translate(-1 -1)"><path d="m114.622644 327.195472 52.004717 13.810198v-18.05949l4.245283-4.249292h29.716982v21.246459 14.872523h-31.839624l-39.268868-16.997169z" fill="#cdbdb2"></path><path d="m199.528305 327.195472 50.943397 13.810198v-18.05949l4.245283-4.249292h29.716981v21.246459 14.872523h-31.839623l-39.268868-16.997169z" fill="#cdbdb2" transform="matrix(-1 0 0 1 483.96227 0)"></path><path d="m170.872644 287.889523-4.245283 35.056657 5.306604-4.249292h55.18868l6.367925 4.249292-4.245284-35.056657-8.490565-5.311615-42.452832 1.062323z" fill="#393939"></path><path d="m142.216984 50.9915022 25.471698 59.4900858 11.674528 173.158643h41.391511l12.735849-173.158643 23.349056-59.4900858z" fill="#f89c35"></path><path d="m30.7783023 181.657226-29.71698153 86.048161 74.29245393-4.249293h47.7594343v-37.181303l-2.122641-76.487253-10.613208 8.498583z" fill="#f89d35"></path><path d="m87.0283032 191.218134 87.0283028 2.124646-9.551886 44.617563-41.391511-10.623229z" fill="#d87c30"></path><path d="m87.0283032 192.280457 36.0849058 33.994334v33.994334z" fill="#ea8d3a"></path><path d="m123.113209 227.337114 42.452831 10.623229 13.79717 45.679888-9.551886 5.311615-46.698115-27.620398z" fill="#f89d35"></path><path d="m123.113209 261.331448-8.490565 65.864024 56.25-39.305949z" fill="#eb8f35"></path><path d="m174.056606 193.34278 5.306604 90.297451-15.919812-46.211049z" fill="#ea8e3a"></path><path d="m74.2924539 262.393771 48.8207551-1.062323-8.490565 65.864024z" fill="#d87c30"></path><path d="m24.4103777 355.878193 90.2122663-28.682721-40.3301901-64.801701-73.23113313 5.311616z" fill="#eb8f35"></path><path d="m167.688682 110.481588-45.636793 38.243627-35.0235858 42.492919 87.0283028 3.186969z" fill="#e8821e"></path><path d="m114.622644 327.195472 56.25-39.305949-4.245283 33.994334v19.121813l-38.207548-7.43626z" fill="#dfcec3"></path><path d="m229.245286 327.195472 55.18868-39.305949-4.245283 33.994334v19.121813l-38.207548-7.43626z" fill="#dfcec3" transform="matrix(-1 0 0 1 513.679252 0)"></path><path d="m132.665096 212.464593-11.674528 24.433427 41.39151-10.623229z" fill="#393939" transform="matrix(-1 0 0 1 283.372646 0)"></path><path d="m23.349057 1.06232296 144.339625 109.41926504-24.410378-59.4900858z" fill="#e88f35"></path><path d="m23.349057 1.06232296-19.10377392 58.42776294 10.61320772 63.7393781-7.42924541 4.249292 10.61320771 9.560906-8.49056617 7.436261 11.67452847 10.623229-7.4292454 6.373938 16.9811323 21.246459 79.5990577-24.433428c38.915096-31.161473 58.018869-47.096318 57.311322-47.804533-.707548-.708215-48.820756-37.1813036-144.339625-109.41926504z" fill="#8e5a30"></path><g transform="matrix(-1 0 0 1 399.056611 0)"><path d="m30.7783023 181.657226-29.71698153 86.048161 74.29245393-4.249293h47.7594343v-37.181303l-2.122641-76.487253-10.613208 8.498583z" fill="#f89d35"></path><path d="m87.0283032 191.218134 87.0283028 2.124646-9.551886 44.617563-41.391511-10.623229z" fill="#d87c30"></path><path d="m87.0283032 192.280457 36.0849058 33.994334v33.994334z" fill="#ea8d3a"></path><path d="m123.113209 227.337114 42.452831 10.623229 13.79717 45.679888-9.551886 5.311615-46.698115-27.620398z" fill="#f89d35"></path><path d="m123.113209 261.331448-8.490565 65.864024 55.18868-38.243626z" fill="#eb8f35"></path><path d="m174.056606 193.34278 5.306604 90.297451-15.919812-46.211049z" fill="#ea8e3a"></path><path d="m74.2924539 262.393771 48.8207551-1.062323-8.490565 65.864024z" fill="#d87c30"></path><path d="m24.4103777 355.878193 90.2122663-28.682721-40.3301901-64.801701-73.23113313 5.311616z" fill="#eb8f35"></path><path d="m167.688682 110.481588-45.636793 38.243627-35.0235858 42.492919 87.0283028 3.186969z" fill="#e8821e"></path><path d="m132.665096 212.464593-11.674528 24.433427 41.39151-10.623229z" fill="#393939" transform="matrix(-1 0 0 1 283.372646 0)"></path><path d="m23.349057 1.06232296 144.339625 109.41926504-24.410378-59.4900858z" fill="#e88f35"></path><path d="m23.349057 1.06232296-19.10377392 58.42776294 10.61320772 63.7393781-7.42924541 4.249292 10.61320771 9.560906-8.49056617 7.436261 11.67452847 10.623229-7.4292454 6.373938 16.9811323 21.246459 79.5990577-24.433428c38.915096-31.161473 58.018869-47.096318 57.311322-47.804533-.707548-.708215-48.820756-37.1813036-144.339625-109.41926504z" fill="#8e5a30"></path></g></g></svg>
+          </span>
+          <div class="x-connect-lbl">
+            <div>MetaMask</div>
+          </div>
+        </button>
+        <button type="button" id="coinbaseWalletBtn" class="x-connect-btn">
+          <span>
+            <svg width="383px" height="383px" viewBox="0 0 383 383" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" style="width: 28px; height: 28px;"><defs><rect id="coinbasewallet-path-1" x="0" y="0" width="383" height="383" rx="64"></rect><linearGradient x1="49.9999938%" y1="0%" x2="49.9999938%" y2="100%" id="coinbasewallet-linearGradient-3"><stop stop-color="#2E66F8" offset="0%"></stop><stop stop-color="#124ADB" offset="100%"></stop></linearGradient></defs><g id="coinbasewallet-Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="coinbasewallet"><g id="coinbasewallet-Path"><mask id="coinbasewallet-mask-2" fill="white"><use xlink:href="#coinbasewallet-path-1"></use></mask><rect stroke="#979797" x="0.5" y="0.5" width="382" height="382" rx="64"></rect><polygon fill="url(#coinbasewallet-linearGradient-3)" fill-rule="nonzero" mask="url(#coinbasewallet-mask-2)" points="0 0 383 0 383 384 0 384"></polygon></g><path d="M60.1074,191.572 C60.1074,264.966 119.605,324.463 192.998,324.463 C266.392,324.463 325.889,264.966 325.889,191.572 C325.889,118.179 266.392,58.6816 192.998,58.6816 C119.605,58.6816 60.1074,118.179 60.1074,191.572 Z M159.037,148.752 C154.144,148.752 150.178,152.718 150.178,157.611 L150.178,225.533 C150.178,230.426 154.144,234.393 159.037,234.393 L226.959,234.393 C231.852,234.393 235.818,230.426 235.818,225.533 L235.818,157.611 C235.818,152.718 231.852,148.752 226.959,148.752 L159.037,148.752 Z" id="coinbasewallet-Shape" fill="#FFFFFF"></path></g></g></svg>
+          </span>
+          <div class="x-connect-lbl">
+            <div>Coinbase Wallet</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.js" integrity="sha512-tyQHGhqSiH/wW31W22IYEXVwL7Rh9pQ5oDedxPkXEftX/woKF5l/qswBaQ1Ohre7OyiLk1ypnYBBzmSZ/ZZk1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/main.js"></script>
+  <script src="js/wallet.js"></script>
+  <script>
+    $('#generateModel').on('click', function () {
+      // getting the value
+      const iframe = document.getElementById("iframe");
+      iframe.style.display = "none";
+
+      let id = "<%=user.id%>";
+      window.location.href = "/tool?id=" + id;
+
+      return;
+      let textval = $('#elemprompt').val().trim();
+      if (textval.length < 4) {
+        Swal.fire({
+          title: "Prompt is too short",
+          text: "Your prompt is too short for DCLBuilderAI to work.",
+          icon: "warning",
+          button: "OK",
+        });
+        return;
+      }
+
+      document.getElementById("mv-demo").src = "file22.glb";
+      document.getElementById("load").style.visibility = "visible";
+      document.getElementById("loadi").style.visibility = "hidden";
+      // document.getElementById("loadi").style.visibility = "hidden";
+      document.getElementById("texture").style.visibility = "hidden";
+
+      // document.getElementById("open").style.visibility = "hidden";
+      document.getElementById("mv-demo").style.visibility = "hidden";
+      var xhr = new XMLHttpRequest();
+      xhr.timeout = 0;
+      xhr.open('POST', '/run3dModelJob', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onload = function () {
+        // document.getElementsByClassName('loaderanim')[0].fadeOut();
+        document.getElementById("load").style.visibility = "hidden";
+        var data = JSON.parse(this.responseText);
+        if (data == 'error') {
+          document.getElementById("loadi").style.visibility = "visible";
+          document.getElementById('loadi').innerHTML = 'You have exhausted your current generation cap';
+          return;
+        }
+        if (data == 'incomplete') {
+          document.getElementById("loadi").style.visibility = "visible";
+          document.getElementById('loadi').innerHTML = 'Something went wrong with this job, if the error persists, please contact support';
+          return;
+        }
+        if (data == 'moderation') {
+          document.getElementById("loadi").style.visibility = "visible";
+          document.getElementById('loadi').innerHTML = 'Request cannot be completed because it in violation of ImagineAI\'s rules.';
+          document.getElementById('generations').innerText = parseInt(document.getElementById('generations').innerHTML + 1);
+          return;
+        }
+        // document.getElementById("open").style.visibility = "visible";
+        document.getElementById("mv-demo").src = data;
+        // var open = document.getElementById("open");
+        // open.setAttribute('href', data);
+        document.getElementById("mv-demo").style.visibility = "visible";
+      };
+      xhr.send('prompt1=' + textval + "&id=" + id);
+    })
+
+    $('#generateImage').on('click', function () {
+      let id = "<%=user.id%>";
+      window.location.href = "/toolImage?id=" + id;
+  })
+
+    $('#generateTexture').on('click', function () {
+      let textval = $('#elemprompt').val().trim();
+      if (textval.length < 4) {
+        Swal.fire({
+          title: "Prompt is too short",
+          text: "Your prompt is too short for DCLBuilderAI to work.",
+          icon: "warning",
+          button: "OK",
+        });
+        return;
+      }
+      document.getElementById("texture").style.visibility = "hidden";
+      document.getElementById("load").style.visibility = "visible";
+      document.getElementById("loadi").style.visibility = "hidden";
+
+      var xhr = new XMLHttpRequest();
+      xhr.timeout = 0;
+      xhr.open('POST', '/runTextureJob', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      let id = "<%=user.id%>";
+
+      xhr.onload = function () {
+        document.getElementById("load").style.visibility = "hidden";
+        var data = JSON.parse(this.responseText);
+        document.getElementById("texture").style.visibility = "visible";
+        document.getElementById("texture").src = data;
+      };
+
+      xhr.send('prompt1=' + textval + "&id=" + id);
+
+    })
+
+  </script>
+  <script>
+    let modal = document.getElementById('connectModal');
+    let closeBtn = document.getElementsByClassName('x-close')[0]
+    $('#connectModalBtn').on('click', () => {
+      modal.style.display = 'block';
+    });
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+
+</html>
